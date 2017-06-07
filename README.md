@@ -3,9 +3,9 @@
 * 在/common/util.js和/routes/oauth.js配置备案域名，精确到端口号（默认3000）
 * 数据库配置在/models/settings.js 修改成自己的数据库，目前使用的是mongodb
 * 目前/routes/index.js中的access_token是假数据，是我直接定死的，需要获取最新的access_token
-* 先访问备案域名（www.sspku.com:3000/oauth),跳转获得userid,后进入定位页面，写入数据库的是学号，姓名，经度，纬度，号码
-* 之后访问（www.sspku.com:3000/numberCheck),可查看当前的最大叫号号码
-* 另外，老师可在（www.sspku.com:3000/checkKey),输入key，修改当前的最大叫号号码
+* 先访问备案域名,跳转获得userid,后进入定位页面，写入数据库的是学号，姓名，经度，纬度，号码（www.sspku.com:3000/oauth)
+* 查看当前的最大叫号号码（www.sspku.com:3000/numberCheck)
+* 老师输入key，修改当前的最大叫号号码（www.sspku.com:3000/checkKey)
 ## 存在问题
 * 获取数据库中最新的access_token代码上有，但是有bug，时好时坏，貌似是页面render多次的问题，建议换成waterline,然后使用User.findUser(req).then(function(data)解决（例子而已）
 * 叫号的号码目前使用的是全局变量自增，得考虑并发，以及全局变量的合理性
